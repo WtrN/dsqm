@@ -80,6 +80,23 @@ class CyclomaticComplexityVisitor extends RecursiveAstVisitor<void> {
     super.visitSwitchCase(node);
   }
 
+  // Switch statement when pattern matching
+  @override
+  void visitSwitchExpression(SwitchExpression node) {
+    _increaseComplexity(node);
+
+    super.visitSwitchExpression(node);
+  }
+
+  // case statement
+  @override
+  void visitSwitchPatternCase(SwitchPatternCase node) {
+    _increaseComplexity(node);
+
+    super.visitSwitchPatternCase(node);
+  }
+
+  // default case statement
   @override
   void visitSwitchDefault(SwitchDefault node) {
     _increaseComplexity(node);
